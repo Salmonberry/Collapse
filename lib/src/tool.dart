@@ -11,7 +11,7 @@ class Tool {
 
   String say(String value) => 'Hello,$value';
 
-  Future<File?> onCustomImageButtonClicked() async {
+  Future<File?> pickedCustomImage() async {
     XFile? image;
     CroppedFile? croppedFile;
     File? newImage;
