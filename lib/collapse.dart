@@ -7,3 +7,5 @@ library collapse;
 // }
 
 export 'src/tool.dart';
+export 'src/date_time_utils.dart';
+
