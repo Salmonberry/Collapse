@@ -6,6 +6,6 @@ library collapse;
 //   int addOne(int value) => value + 1;
 // }
 
-export 'src/tool.dart';
+export 'src/image_utils.dart';
 export 'src/date_time_utils.dart';
 

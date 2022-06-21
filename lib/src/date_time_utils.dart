@@ -1,6 +1,7 @@
 class DateTimeUtil {
   DateTimeUtil();
 
+  // 计算年龄
   static int calculatedAge(DateTime birthday) {
 
     if (birthday.isAfter(DateTime.now())) {
