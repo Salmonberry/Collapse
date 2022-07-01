@@ -1,3 +1,4 @@
+import 'package:collapse/collapse.dart';
 import 'package:flutter/material.dart';
 
 class FlutterEnvironmentPage extends StatelessWidget {
@@ -11,8 +12,9 @@ class FlutterEnvironmentPage extends StatelessWidget {
         ),
         body: Container(
           alignment: Alignment.center,
-          color: Colors.amber,
-          child: const Text('Environment'),
+          child: Column(
+            children: const [ButtonsPanel(), GridViewLayout()],
+          ),
         ));
   }
 }

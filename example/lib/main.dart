@@ -1,3 +1,4 @@
+import 'package:collapse/collapse.dart';
 import 'package:example/flutter_envirment/flutter_environment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -32,7 +33,9 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         '/': (context) => const MyHomePage(title: 'Home'),
-        '/flutter_environment_page': (context) => const FlutterEnvironmentPage()
+        '/flutter_environment_page': (
+            context) => const FlutterEnvironmentPage(),
+        '/input_widgets': (context) =>const InputWidgets(),
       },
     );
   }
