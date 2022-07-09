@@ -32,8 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
             spacing: 5,
             children: <Widget>[
               _buildItem('Buttons', Icons.add, '/flutter_environment_page'),
-              _buildItem('inputs', Icons.ac_unit_rounded, '/input_widgets'),
-              // _buildItem('inputs', Icons.ac_unit_rounded, '/input_widgets'),
+              _buildItem('Inputs', Icons.ac_unit_rounded, '/input_widgets'),
             ],
           ),
         ) // This trailing comma makes auto-formatting nicer for build methods.

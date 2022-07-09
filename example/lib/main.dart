@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
         '/flutter_environment_page': (
             context) => const FlutterEnvironmentPage(),
         '/input_widgets': (context) =>const InputWidgets(),
+        '/test': (context) =>const InputWidgets(),
       },
     );
   }

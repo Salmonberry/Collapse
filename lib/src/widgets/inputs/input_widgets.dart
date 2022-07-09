@@ -22,6 +22,12 @@ class _InputWidgetsState extends State<InputWidgets>
   late TextEditingController _userNameTextEditingController;
   late TextEditingController _userAgeTextEditingController;
 
+  static const List<String> _kOptions = <String>[
+    'aardvark',
+    'bobcat',
+    'chameleon',
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -231,26 +237,39 @@ class _InputWidgetsState extends State<InputWidgets>
                   TextSpan(text: '※', style: TextStyle(color: Colors.red))
                 ])),
             Container(
-              margin: const EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
-                  border: Border.all(),
-                  borderRadius: const BorderRadius.all(Radius.circular(50))),
-              child: TextField(
-                controller: _deviceNameTextEditingController,
-                autofocus: true,
-                maxLines: 1,
-                maxLengthEnforcement:
-                    MaxLengthEnforcement.truncateAfterCompositionEnds,
-                inputFormatters: <TextInputFormatter>[
-                  LengthLimitingTextInputFormatter(8) //限制长度
-                ],
-                decoration: const InputDecoration(
-                    prefix: SizedBox(width: 20),
-                    border: InputBorder.none,
-                    hintText: '输入水杯名称'),
-                onChanged: (value) {},
-              ),
-            )
+                margin: const EdgeInsets.only(top: 10),
+                // decoration: BoxDecoration(
+                //     border: Border.all(),
+                //     borderRadius: const BorderRadius.all(Radius.circular(50))),
+                child: Autocomplete(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    if (textEditingValue.text == '') {
+                      return const Iterable<String>.empty();
+                    }
+
+                    return _kOptions.where((String option) {
+                      return option
+                          .contains(textEditingValue.text.toLowerCase());
+                    });
+                  },
+                )
+
+                // TextField(
+                //   controller: _deviceNameTextEditingController,
+                //   autofocus: true,
+                //   maxLines: 1,
+                //   maxLengthEnforcement:
+                //       MaxLengthEnforcement.truncateAfterCompositionEnds,
+                //   inputFormatters: <TextInputFormatter>[
+                //     LengthLimitingTextInputFormatter(8) //限制长度
+                //   ],
+                //   decoration: const InputDecoration(
+                //       prefix: SizedBox(width: 20),
+                //       border: InputBorder.none,
+                //       hintText: '输入水杯名称'),
+                //   onChanged: (value) {},
+                // ),
+                )
           ],
         ),
       );
