@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class NetworkLoadingWidget extends StatefulWidget {
   const NetworkLoadingWidget({Key? key}) : super(key: key);

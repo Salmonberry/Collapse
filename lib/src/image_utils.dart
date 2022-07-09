@@ -89,7 +89,7 @@ class ImageUtils {
       try {
         compressImage = (await FlutterImageCompress.compressAndGetFile(
           compressImage.absolute.path,
-          '${localImageSaveBasePath}/cover_${nanoid(10)}.jpg',
+          '$localImageSaveBasePath/cover_${nanoid(10)}.jpg',
           quality: quality,
         ))!;
 

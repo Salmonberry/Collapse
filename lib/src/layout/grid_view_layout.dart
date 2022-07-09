@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -37,7 +36,7 @@ class _GridViewLayoutState extends State<GridViewLayout> {
                 childAspectRatio: 1.0 //宽高比为1时，子widget
             ),
             itemBuilder: (context, index) =>
-                Container(
+                SizedBox(
                   width: 135,
                   height: 135,
                   child: _imageItem(

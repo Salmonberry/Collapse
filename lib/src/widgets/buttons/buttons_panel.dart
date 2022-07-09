@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -6,16 +5,14 @@ class ButtonsPanel extends StatelessWidget {
   const ButtonsPanel({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Container(
-        child: Wrap(
-          spacing: 10,
-          children: [
-            buildBorderOutlinedButton01(),
-            buildBorderOutlinedButton02(),
-            buildNoneBorderButton(),
-            buildInkButton()
-          ],
-        ),
+  Widget build(BuildContext context) => Wrap(
+        spacing: 10,
+        children: [
+          buildBorderOutlinedButton01(),
+          buildBorderOutlinedButton02(),
+          buildNoneBorderButton(),
+          buildInkButton()
+        ],
       );
 
   /// 使用OutlinedButton构建边框线的按钮, 能有墨水效果
