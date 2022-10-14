@@ -1,0 +1,45 @@
+class AppDimens {
+  AppDimens();
+
+  static const dimens0 = .0;
+  static const dimens1 = 1.0;
+  static const dimens2 = 2.0;
+  static const dimens3 = 3.0;
+  static const dimens6 = 6.0;
+  static const dimens8 = 8.0;
+  static const dimens9 = 9.0;
+  static const dimens10 = 10.0;
+  static const dimens11 = 11.0;
+  static const dimens12 = 12.0;
+  static const dimens13 = 13.0;
+  static const dimens14 = 14.0;
+  static const dimens15 = 15.0;
+  static const dimens16 = 16.0;
+  static const dimens17 = 17.0;
+  static const dimens18 = 18.0;
+  static const dimens20 = 20.0;
+  static const dimens21 = 21.0;
+  static const dimens23 = 23.0;
+  static const dimens27 = 27.0;
+  static const dimens28 = 28.0;
+  static const dimens30 = 30.0;
+  static const dimens32 = 32.0;
+  static const dimens35 = 35.0;
+  static const dimens39 = 39.0;
+  static const dimens40 = 40.0;
+  static const dimens50 = 50.0;
+  static const dimens60 = 60.0;
+  static const dimens64 = 64.0;
+  static const dimens70 = 70.0;
+  static const dimens86 = 86.0;
+  static const dimens100 = 100.0;
+  static const dimens120 = 120.0;
+  static const dimens141 = 141.0;
+  static const dimens150 = 150.0;
+  static const dimens158 = 158.0;
+  static const dimens160 = 160.0;
+  static const dimens183 = 183.0;
+  static const dimens200 = 200.0;
+  static const dimens330 = 330.0;
+  static const dimens350 = 350.0;
+}

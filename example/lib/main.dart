@@ -1,11 +1,12 @@
 import 'package:collapse/collapse.dart';
-import 'package:example/flutter_envirment/flutter_environment_page.dart';
+import 'package:example/layout/tab_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import 'config/router/service_navigator.dart';
 import 'config/service_locator.dart';
 import 'home/home.dart';
+import 'layout/layout_list_page.dart';
 
 final getIt = GetIt.instance;
 
@@ -29,14 +30,18 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       initialRoute: "/",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
+        appBarTheme:const AppBarTheme(elevation: 0)
       ),
       routes: {
-        '/': (context) => const MyHomePage(title: 'Home'),
-        '/flutter_environment_page': (
-            context) => const FlutterEnvironmentPage(),
-        '/input_widgets': (context) =>const InputWidgets(),
-        '/test': (context) =>const InputWidgets(),
+        '/': (context) => const MyHomePage(),
+        '/buttons_panel': (context) => const ButtonsPanel(),
+        '/input_widgets': (context) => const InputWidgetsPanel(),
+        '/layout': (context) => const LayoutListPage(),
+        '/grid_view_layout': (context) => const GridViewLayout(),
+        '/tab_list_page': (context) => const TabListPage(),
+        '/tab_bar_page':(context)=> const TabBarPage(),
+        '/test': (context) => const InputWidgetsPanel(),
       },
     );
   }

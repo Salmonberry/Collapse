@@ -2,14 +2,14 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class InputWidgets extends StatefulWidget {
-  const InputWidgets({Key? key}) : super(key: key);
+class InputWidgetsPanel extends StatefulWidget {
+  const InputWidgetsPanel({Key? key}) : super(key: key);
 
   @override
-  State<InputWidgets> createState() => _InputWidgetsState();
+  State<InputWidgetsPanel> createState() => _InputWidgetsPanelState();
 }
 
-class _InputWidgetsState extends State<InputWidgets>
+class _InputWidgetsPanelState extends State<InputWidgetsPanel>
     with WidgetsBindingObserver {
   double _bottom = 0;
   String? _selectedValue;
@@ -60,7 +60,7 @@ class _InputWidgetsState extends State<InputWidgets>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Input Widgets Panel'),),
       resizeToAvoidBottomInset: false,
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,

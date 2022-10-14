@@ -1,36 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class ButtonsPanel extends StatelessWidget {
+class ButtonsPanel extends StatefulWidget {
   const ButtonsPanel({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Wrap(
-        spacing: 10,
-        children: [
-          buildBorderOutlinedButton01(),
-          buildBorderOutlinedButton02(),
-          buildNoneBorderButton(),
-          buildInkButton()
-        ],
+  State<ButtonsPanel> createState() => _ButtonsPanelState();
+}
+
+class _ButtonsPanelState extends State<ButtonsPanel> {
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+        title: const Text('Buttons Panel')),
+        body: Container(
+          constraints: const BoxConstraints.expand(),
+          padding: const EdgeInsets.only(top: 20),
+          child: ListView(
+            children: [
+              buildBorderOutlinedButton01(),
+              buildBorderOutlinedButton02(),
+              buildNoneBorderButton(),
+              buildInkButton()
+            ],
+          ),
+        ),
       );
 
-  /// 使用OutlinedButton构建边框线的按钮, 能有墨水效果
+  /// OutlinedButton 边框线按钮 墨水效果
   OutlinedButton buildBorderOutlinedButton01() {
     return OutlinedButton(
         onPressed: () {
-          Fluttertoast.showToast(msg: 'Hello');
+          Fluttertoast.showToast(msg: 'OutlinedButton 边框线 按钮 墨水效果');
         },
         style: OutlinedButton.styleFrom(
             backgroundColor: Colors.white,
             primary: Colors.black26,
-            fixedSize: const Size(130, 44),
+            fixedSize: const Size(200, 44),
             side: const BorderSide(width: 1.0, color: Colors.orange),
             shape: const StadiumBorder()),
         child: const Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           child: Text(
-            '重试',
+            '边框线按钮',
             style: TextStyle(fontSize: 17, color: Colors.orange),
           ),
         ));
@@ -41,7 +54,7 @@ class ButtonsPanel extends StatelessWidget {
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
         fixedSize:
-            MaterialStateProperty.resolveWith((states) => const Size(120, 40)),
+            MaterialStateProperty.resolveWith((states) => const Size(200, 40)),
         backgroundColor:
             MaterialStateProperty.resolveWith((states) => Colors.white),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -49,12 +62,34 @@ class ButtonsPanel extends StatelessWidget {
             borderRadius: BorderRadius.circular(50))),
       ),
       onPressed: () {
-        Fluttertoast.showToast(msg: 'Hello');
+        Fluttertoast.showToast(msg: 'ElevatedButton 边框线按钮 无墨水效果');
       },
       child: const Text(
-        '确认选择',
+        '边框线按钮',
         style: TextStyle(color: Colors.orange, fontSize: 17),
       ));
+
+  /// ElevatedButton 无边框按钮
+  Widget buildNoneBorderButton() => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 0),
+        child: ElevatedButton(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              fixedSize: MaterialStateProperty.resolveWith(
+                  (states) => const Size(200, 10)),
+              backgroundColor:
+                  MaterialStateProperty.resolveWith((states) => Colors.green),
+              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50))),
+            ),
+            onPressed: () {
+              Fluttertoast.showToast(msg: 'ElevatedButton 无边框按钮');
+            },
+            child: const Text(
+              '无边框按钮',
+              style: TextStyle(color: Colors.white, fontSize: 17),
+            )),
+      );
 
   /// 自定义墨水效果按钮
   Widget buildInkButton() => Material(
@@ -69,15 +104,15 @@ class ButtonsPanel extends StatelessWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(50),
             onTap: () {
-              Fluttertoast.showToast(msg: 'Hello');
+              Fluttertoast.showToast(msg: '自定义墨水效果按钮');
             },
             splashColor: Colors.lightBlue,
             child: Container(
-              width: 80,
-              height: 30,
+              width: 200,
+              height: 50,
               alignment: Alignment.center,
               child: const Text(
-                '连接',
+                '自定义墨水效果按钮',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -86,27 +121,5 @@ class ButtonsPanel extends StatelessWidget {
             ),
           ),
         ),
-      );
-
-  /// 无边框按钮
-  Widget buildNoneBorderButton() => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
-        child: ElevatedButton(
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(0),
-              fixedSize: MaterialStateProperty.resolveWith(
-                  (states) => const Size(200, 10)),
-              backgroundColor:
-                  MaterialStateProperty.resolveWith((states) => Colors.green),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50))),
-            ),
-            onPressed: () {
-              Fluttertoast.showToast(msg: 'Hello');
-            },
-            child: const Text(
-              ' 从本地选择',
-              style: TextStyle(color: Colors.white, fontSize: 17),
-            )),
       );
 }
