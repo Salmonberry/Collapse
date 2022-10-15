@@ -99,6 +99,9 @@ class _TabBarAndOffstagePageState extends State<TabBarAndOffstagePage>
   //       ),
   //     );
 
-  Widget _buildContent(int currentIndex) =>
-      Container(color: Colors.amber.shade100, child: _pages[currentIndex]);
+  Widget _buildContent(int currentIndex) => Container(
+      width: double.maxFinite,
+      alignment: Alignment.center,
+      color: Colors.amber.shade100,
+      child: _pages[currentIndex]);
 }
