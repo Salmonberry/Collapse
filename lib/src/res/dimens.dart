@@ -1,45 +1,20 @@
+///思考：
+///什么时候才应该定义AppDimens的类呢？
+///我们是否真的有必要为了便于维护尺寸大小，而定义一个类来做管控，这样做对整个的项目的收益有多大呢？
+///-------------------------
+///真实情况是
+///若果一个团队对项目有严格的要求，具体到每个页面的边距，字体大小都有一定的规范标准，
+///这对后期所有页面一同修改同一边距或字体大小，确实能省下不少人力（不用逐个页面查找修改）
+///但如果客户只是给了设计图就完事，只要跟设计图差不多的 宽松要求下，在这种情况下，采用类管控所有的尺寸大小，
+///这时的收益就会大大减小
+///
+/// 综合这两种情况 页面有统一的样式尺寸做类的管控管理才是更有意义的：
+/// 页面的边距
+/// AppBar的标题大小、导航logo大小
+///
 class AppDimens {
   AppDimens();
 
   static const dimens0 = .0;
   static const dimens1 = 1.0;
-  static const dimens2 = 2.0;
-  static const dimens3 = 3.0;
-  static const dimens6 = 6.0;
-  static const dimens8 = 8.0;
-  static const dimens9 = 9.0;
-  static const dimens10 = 10.0;
-  static const dimens11 = 11.0;
-  static const dimens12 = 12.0;
-  static const dimens13 = 13.0;
-  static const dimens14 = 14.0;
-  static const dimens15 = 15.0;
-  static const dimens16 = 16.0;
-  static const dimens17 = 17.0;
-  static const dimens18 = 18.0;
-  static const dimens20 = 20.0;
-  static const dimens21 = 21.0;
-  static const dimens23 = 23.0;
-  static const dimens27 = 27.0;
-  static const dimens28 = 28.0;
-  static const dimens30 = 30.0;
-  static const dimens32 = 32.0;
-  static const dimens35 = 35.0;
-  static const dimens39 = 39.0;
-  static const dimens40 = 40.0;
-  static const dimens50 = 50.0;
-  static const dimens60 = 60.0;
-  static const dimens64 = 64.0;
-  static const dimens70 = 70.0;
-  static const dimens86 = 86.0;
-  static const dimens100 = 100.0;
-  static const dimens120 = 120.0;
-  static const dimens141 = 141.0;
-  static const dimens150 = 150.0;
-  static const dimens158 = 158.0;
-  static const dimens160 = 160.0;
-  static const dimens183 = 183.0;
-  static const dimens200 = 200.0;
-  static const dimens330 = 330.0;
-  static const dimens350 = 350.0;
 }

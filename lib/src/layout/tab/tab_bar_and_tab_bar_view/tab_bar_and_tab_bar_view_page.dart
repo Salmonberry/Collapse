@@ -1,26 +1,29 @@
-import 'package:collapse/src/res/colors.dart';
+
 import 'package:collapse/src/res/dimens.dart';
 import 'package:flutter/material.dart';
 
-class TabBarPage extends StatefulWidget {
-  const TabBarPage({Key? key}) : super(key: key);
+import 'domains/tab_entity.dart';
+
+class TabBarAndTabBarViewPage extends StatefulWidget {
+  const TabBarAndTabBarViewPage({Key? key}) : super(key: key);
 
   @override
-  State<TabBarPage> createState() => _TabBarPageState();
+  State<TabBarAndTabBarViewPage> createState() => _TabBarAndTabBarViewPageState();
 }
 
-class _TabBarPageState extends State<TabBarPage>
+class _TabBarAndTabBarViewPageState extends State<TabBarAndTabBarViewPage>
     with SingleTickerProviderStateMixin {
   late final List<Widget> _pages = const [
-    Center(child: Text('unused', textAlign: TextAlign.center)),
-    Center(child: Text('used', textAlign: TextAlign.center)),
-    Center(child: Text('expire', textAlign: TextAlign.center))
+    Center(child: Text('01', textAlign: TextAlign.center)),
+    Center(child: Text('02', textAlign: TextAlign.center)),
+    Center(child: Text('03', textAlign: TextAlign.center))
   ];
   TabController? _tabController;
+
   final _tabData = [
-    {'title': '01'},
-    {'title': '02'},
-    {'title': '03'}
+    TabEntity('01'),
+    TabEntity('02'),
+    TabEntity('03'),
   ];
 
   @override
@@ -41,7 +44,7 @@ class _TabBarPageState extends State<TabBarPage>
                 // backgroundColor: const Color(BACKGROUND_COLOR),
                 elevation: AppDimens.dimens0,
                 title: const Text(
-                  'Tab Bar Page',
+                  'TabBar and TabBarView',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -67,9 +70,9 @@ class _TabBarPageState extends State<TabBarPage>
                         child: Tab(
                           height: 40,
                           child: Text(
-                            (_tabData[index]['title'])!,
+                            (_tabData[index].title),
                             style: const TextStyle(
-                                fontSize: AppDimens.dimens16,
+                                fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white),
                           ),

@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
         '/layout': (context) => const LayoutListPage(),
         '/grid_view_layout': (context) => const GridViewLayout(),
         '/tab_list_page': (context) => const TabListPage(),
-        '/tab_bar_page':(context)=> const TabBarPage(),
+        '/tab_bar_and_tab_bar_view_page':(context)=> const TabBarAndTabBarViewPage(),
+        '/tab_bar_and_offstage_page':(context)=> TabBarAndOffstagePage(),
         '/test': (context) => const InputWidgetsPanel(),
       },
     );

@@ -12,7 +12,8 @@ class TabListPage extends StatefulWidget {
 
 class _TabListPageState extends State<TabListPage> {
   final List<HomeItemEntity> _items = [
-    HomeItemEntity('Tab Bar Page', Icons.abc_outlined, '/tab_bar_page'),
+    HomeItemEntity('TabBar and TabBarView', Icons.abc_outlined, '/tab_bar_and_tab_bar_view_page'),
+    HomeItemEntity('TabBar and Offstage', Icons.abc_outlined, '/tab_bar_and_offstage_page'),
   ];
 
   @override
@@ -20,6 +21,8 @@ class _TabListPageState extends State<TabListPage> {
     // TODO: implement initState
     super.initState();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,8 @@ class _TabListPageState extends State<TabListPage> {
             padding: const EdgeInsets.all(AppDimens.dimen20),
             child: ListView(
                 children: List.generate(
-                    _items.length, (index) => ItemButton(_items[index])))));
+                    _items.length, (index) => Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                    child: ItemButton(_items[index]))))));
   }
 }
