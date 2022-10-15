@@ -1,6 +1,6 @@
-import 'package:example/home/domain/home_item_entity.dart';
-import 'package:example/res/dimens.dart';
-import 'package:example/widgets/item_button.dart';
+import 'package:Collapse/home/domain/home_item_entity.dart';
+import 'package:Collapse/res/dimens.dart';
+import 'package:Collapse/widgets/item_button.dart';
 import 'package:flutter/material.dart';
 
 class TabListPage extends StatefulWidget {

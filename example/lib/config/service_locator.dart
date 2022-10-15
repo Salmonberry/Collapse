@@ -1,4 +1,4 @@
-import 'package:example/config/router/service_navigator.dart';
+import 'package:Collapse/config/router/service_navigator.dart';
 import 'package:get_it/get_it.dart';
 
  class  LocatorService {

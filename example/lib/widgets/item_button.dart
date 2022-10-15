@@ -1,7 +1,7 @@
-import 'package:example/config/router/service_navigator.dart';
-import 'package:example/home/domain/home_item_entity.dart';
-import 'package:example/main.dart';
-import 'package:example/res/dimens.dart';
+import 'package:Collapse/config/router/service_navigator.dart';
+import 'package:Collapse/home/domain/home_item_entity.dart';
+import 'package:Collapse/main.dart';
+import 'package:Collapse/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class ItemButton extends StatelessWidget {
