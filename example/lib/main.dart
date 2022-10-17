@@ -1,3 +1,4 @@
+import 'package:Collapse/layout/grid_list_page.dart';
 import 'package:Collapse/layout/tab_list_page.dart';
 import 'package:collapse/collapse.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,9 @@ class MyApp extends StatelessWidget {
         '/buttons_panel': (context) => const ButtonsPanel(),
         '/input_widgets': (context) => const InputWidgetsPanel(),
         '/layout': (context) => const LayoutListPage(),
-        '/grid_view_layout': (context) => const GridViewLayout(),
+        '/grid_view_list_page': (context) => const GridListPage(),
+        '/grid_view_layout': (context) => const GridViewLayoutPage(),
+        '/grid_view_column': (context) => const GridViewColumnPage(),
         '/tab_list_page': (context) => const TabListPage(),
         '/tab_bar_and_tab_bar_view_page':(context)=> const TabBarAndTabBarViewPage(),
         '/tab_bar_and_offstage_page':(context)=> const TabBarAndOffstagePage(),

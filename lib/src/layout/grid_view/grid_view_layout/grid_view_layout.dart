@@ -1,29 +1,34 @@
-import 'dart:io';
-import 'package:collapse/src/layout/grid_view/grid_view_layout_presenter.dart';
-import 'package:collapse/src/layout/grid_view/grid_view_layout_view.dart';
+import 'package:collapse/src/layout/grid_view/grid_view_layout/widgets/image_item.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class GridViewLayoutPage extends StatefulWidget {
-  final GridViewLayoutPresenter _presenter;
-
-  const GridViewLayoutPage(this._presenter, {Key? key}) : super(key: key);
+  const GridViewLayoutPage({Key? key}) : super(key: key);
 
   @override
   State<GridViewLayoutPage> createState() => _GridViewLayoutPageState();
 }
 
 class _GridViewLayoutPageState extends State<GridViewLayoutPage>
-    implements GridViewLayoutView {
+     {
   late Future _future;
-  late List<String> _imageList = [];
-  late File _localImage = File('');
-  late String _currentSelectedImageUrl = '';
+  late List<String> _imageList;
+
+  String _currentSelectedImageUrl = '';
 
   @override
   void initState() {
     super.initState();
 
-    _future = widget._presenter.initData();
+    _future = Future.delayed(const Duration(seconds: 2), () {
+      _imageList = [
+        'https://nb-web-www.naiveblue.com/www-nb/20210531/a54y3OBXdZna.png!w640.jpg',
+        'https://cdn.jsdelivr.net/gh/Salmonberry/FigureBedBySalmon@master/資源圖/QQ20220607-0.3qsm8okfvo80.jpg',
+        'https://cdn.jsdelivr.net/gh/Salmonberry/FigureBedBySalmon@master/資源圖/迪卢克凯亚.2atzy9e6tekg.jpg',
+        'https://cdn.jsdelivr.net/gh/Salmonberry/FigureBedBySalmon@master/資源圖/甘雨魈刻晴.3uksketwjzo0.jpg',
+        'https://cdn.jsdelivr.net/gh/Salmonberry/FigureBedBySalmon@master/資源圖/可莉阿贝多webp.3gzbuc3aptk0.jpg'
+      ];
+    });
   }
 
   @override
@@ -43,6 +48,8 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
         title: const Text('壁纸设置', style: TextStyle(color: Colors.black)),
       ),
       body: FutureBuilder(future: _future, builder: _buildFuture));
+
+  // body: _buildPage(context));
 
   Widget _buildFuture(BuildContext context, AsyncSnapshot snapshot) {
     switch (snapshot.connectionState) {
@@ -74,43 +81,8 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
         children: [_buildImage(_imageList), _buildButtons(_imageList)],
       ));
 
-  // Container _buildButtons(List<String> data) {
-  //   List<Widget> widgets = [];
-  //
-  //   if (data.isNotEmpty) {
-  //     widgets = [
-  //       _buildConfirmButton(),
-  //       const SizedBox(width: 20),
-  //       _buildCustomImageButton(),
-  //     ];
-  //   } else {
-  //     widgets = [
-  //       _buildCustomImageButton(),
-  //     ];
-  //   }
-  //
-  //   return Container(
-  //     padding: const EdgeInsets.only(top: 20),
-  //     child: Column(
-  //       mainAxisAlignment: MainAxisAlignment.start,
-  //       children: widgets,
-  //     ),
-  //   );
-  // }
   Container _buildButtons(List<String> data) {
     final List<Widget> widgets = [_buildConfirmButton()];
-
-    // if (data.isNotEmpty) {
-    //   widgets = [
-    //     _buildConfirmButton(),
-    //     const SizedBox(width: 20),
-    //     _buildCustomImageButton(),
-    //   ];
-    // } else {
-    //   widgets = [
-    //     _buildCustomImageButton(),
-    //   ];
-    // }
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 50),
@@ -121,23 +93,6 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
     );
   }
 
-  // ElevatedButton _buildCustomImageButton() => ElevatedButton(
-  //     style: ButtonStyle(
-  //       elevation: MaterialStateProperty.all(0),
-  //       fixedSize:
-  //           MaterialStateProperty.resolveWith((states) => const Size(120, 40)),
-  //       backgroundColor:
-  //           MaterialStateProperty.resolveWith((states) => Colors.white),
-  //       shape: MaterialStateProperty.all(RoundedRectangleBorder(
-  //           side: const BorderSide(color: AppColors.orange),
-  //           borderRadius: BorderRadius.circular(50))),
-  //     ),
-  //     onPressed: widget._presenter.onCustomImageButtonClicked,
-  //     child: const Text(
-  //       '自定义',
-  //       style: TextStyle(color: AppColors.orange, fontSize: 17),
-  //     ));
-
   Widget _buildConfirmButton() => ElevatedButton(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
@@ -146,13 +101,13 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
         backgroundColor:
             MaterialStateProperty.resolveWith((states) => Colors.white),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(
-            side: const BorderSide(color: Colors.orange),
+            side: const BorderSide(color: Colors.grey),
             borderRadius: BorderRadius.circular(50))),
       ),
-      onPressed: () => widget._presenter.onConfirmButtonClicked(_localImage),
+      onPressed: () => Fluttertoast.showToast(msg: '确认选择'),
       child: const Text(
         '确认选择',
-        style: TextStyle(color: Colors.orange, fontSize: 17),
+        style: TextStyle(color: Colors.grey, fontSize: 17),
       ));
 
   Widget _buildImage(List<String> data) {
@@ -161,7 +116,6 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
       builder: (context, constraints) {
         print('$constraints');
         return Container(
-          // height: 300.toAdapterSize(),
           child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
@@ -179,17 +133,6 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
         );
       },
     ));
-    // }
-    // else {
-    //   container = Container(
-    //     width: double.maxFinite,
-    //     alignment: Alignment.center,
-    //     child: const Text(
-    //       '没有可预览的在线图片',
-    //       style: TextStyle(fontSize: 20, color: Colors.black),
-    //     ),
-    //   );
-    // }
 
     return container;
   }
@@ -207,14 +150,19 @@ class _GridViewLayoutPageState extends State<GridViewLayoutPage>
   }
 
   Container _buildImageItem(int index) => Container(
-        width: 240,
-        height: 320,
-        child: ImageItem(_imageList[index], _currentSelectedImageUrl,
-            onTapped: () => widget._presenter.onSelected(_imageList[index])),
-      );
+      width: 240,
+      height: 320,
+      child: ImageItem(
+        _imageList[index],
+        _currentSelectedImageUrl,
+        onTapped: () => {
+          _currentSelectedImageUrl = _imageList[index],
+          Fluttertoast.showToast(msg: '$index')
+        },
+      ));
 
   Widget _buildCustomImageButton() => InkWell(
-        onTap: widget._presenter.onCustomImageButtonClicked,
+        onTap: () => Fluttertoast.showToast(msg: 'add item'),
         child: Container(
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.lightBlueAccent),

@@ -13,7 +13,7 @@ class LayoutListPage extends StatefulWidget {
 class _LayoutListPageState extends State<LayoutListPage> {
   final List<HomeItemEntity> _items = [
     HomeItemEntity('Tab', Icons.abc_outlined, '/tab_list_page'),
-    HomeItemEntity('Grid', Icons.add_card_sharp, '/grid_view_layout'),
+    HomeItemEntity('Grid', Icons.add_card_sharp, '/grid_view_list_page'),
   ];
 
   @override
