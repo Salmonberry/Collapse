@@ -1,6 +1,3 @@
-import 'dart:math';
-
-import 'package:collapse/src/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class TabBarAndOffstagePage extends StatefulWidget {

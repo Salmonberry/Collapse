@@ -16,6 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomeItemEntity('Buttons', Icons.add, '/buttons_panel'),
     HomeItemEntity('Inputs', Icons.ac_unit_rounded, '/input_widgets'),
     HomeItemEntity('Layouts', Icons.change_circle, '/layout'),
+    HomeItemEntity('Texts', Icons.change_circle, '/text_widget_panel'),
   ];
 
   @override

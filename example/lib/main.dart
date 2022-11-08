@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
         '/tab_list_page': (context) => const TabListPage(),
         '/tab_bar_and_tab_bar_view_page':(context)=> const TabBarAndTabBarViewPage(),
         '/tab_bar_and_offstage_page':(context)=> const TabBarAndOffstagePage(),
+        '/text_widget_panel':(context)=> const TextWidgetPanel(),
         '/test': (context) => const InputWidgetsPanel(),
       },
     );
